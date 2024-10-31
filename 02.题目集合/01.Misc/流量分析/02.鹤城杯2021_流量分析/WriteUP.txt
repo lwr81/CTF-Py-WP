@@ -1,0 +1,6 @@
+一、通过Excel提取数据
+wireshark打开后筛选http；
+文件-导出分组解析结果-导出为CVS
+excel里通过分列提取到数据。
+
+二、通过Tshark提取数据

@@ -1,0 +1,19 @@
+
+$ tshark -r capture.pcapng -T fields -e dns.qry.name > hex.txt
+
+import binascii
+
+lines=open("hex.txt","r").readlines()
+byte=""
+i=True
+for l in lines:
+  if(i):
+    byte+=l.replace(".secret.base","").replace("\n","")
+  i=not i
+
+open("data","wb").write(binascii.unhexlify(byte))
+
+$ file data
+data: Zip archive data, at least v2.0 to extract
+$ unzip data
+$ cat data.txt
